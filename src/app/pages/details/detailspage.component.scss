@@ -1,0 +1,114 @@
+.navbar {
+    background-color: black;
+}
+
+/* Glassmorphism card effect */
+.glass-card {
+    backdrop-filter: blur(6px) saturate(180%);
+    -webkit-backdrop-filter: blur(6px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.4);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.card {
+    background-color: white;
+    border-radius: 12px;
+    color: black;
+}
+
+.image-box {
+    /* Here's the trick */
+    // background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(47, 47, 162, 0.1)), url(/assets/demonth.png) center center;
+    // background-repeat: no-repeat;
+    // background-attachment: fixed;
+
+    /* Here's the same styles we applied to our content-div earlier */
+    color: white;
+    min-height: 40vh;
+    padding-top: 100px;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    background-size: cover;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+    padding: 16px;
+}
+
+.detail-box {
+    background-color: lightgray;
+    min-height: 55vh;
+    color: black;
+}
+
+.other-box {
+    background-color: white;
+}
+
+.item-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    height: 100px;
+    width: 100px;
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.image-icon {
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+}
+
+.carousel-select {
+    margin: 4px;
+    &:hover,
+    &:active,
+    &:focus {
+        cursor: pointer;
+    }
+}
+
+.slide-image {
+    display: block; 
+    width: 100%; 
+    max-height: 100%;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+::ng-deep .image-dialog-class {
+    mat-dialog-container {
+        padding: 0;
+    }
+}
+
+@media (max-width: 765px) {
+    .image-box {
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url(/assets/demonth.png) center center;
+        background-size: 100%;
+        min-height: 25vh;
+    }
+
+    .detail-box {
+        min-height: 70vh;
+    }
+
+    .icon {
+        height: 75px;
+        width: 75px;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+}

@@ -1,0 +1,20 @@
+@import "bootstrap";
+
+/* Glassmorphism card effect */
+.card {
+    backdrop-filter: blur(6px) saturate(180%);
+    -webkit-backdrop-filter: blur(6px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.5);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.container {
+    padding: 160px;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+}

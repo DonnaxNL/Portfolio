@@ -1,0 +1,38 @@
+<div class="container">
+    <h3>Experience</h3>
+    <div class="card-columns">
+        <div *ngFor="let experience of allExperiences; let i = index">
+            <div class="card" data-aos="fade-down" data-aos-duration="500 * (i+1)"
+                data-aos-once="true" (click)="openPage(experience.id)">
+                <img class="card-img-top" src="{{experience.mainImage}}" alt="Card image cap">
+                <div class="card-body">
+                    <div class="row pl-3">
+                        <img class="p-0 col-auto icon" src="{{experience.icon}}" width="30px" height="30px">
+                        <h4 class="col">{{experience.title}}</h4>
+                    </div>
+                    <p class="card-text mb-2">{{experience.shortDescription}}</p>
+                    <mat-chip-list aria-label="Technologies">
+                        <mat-chip *ngFor="let tech of experience.technologies">{{tech}}</mat-chip>
+                    </mat-chip-list>
+                    <div class="divider"></div>
+                    <mat-card-actions>
+                        <button mat-button (click)="openPage(experience.id)">Learn more</button>
+                        <button mat-button *ngIf="experience.link" (click)="openUrl(experience.link)">Visit website</button>
+                        <button mat-button *ngIf="experience.download" (click)="openUrl(experience.download)">Download</button>
+                    </mat-card-actions>
+                </div>
+            </div>
+        </div>
+        <div class="card" data-aos="fade-down" data-aos-duration="1500"
+            data-aos-once="true">
+            <div class="card-body">
+                <h5 class="card-title">Other</h5>
+                <p class="card-text mb-2">Other qualities:</p>
+                <mat-chip-list aria-label="Technologies">
+                    <mat-chip>GIT</mat-chip>
+                    <mat-chip>Sendgrid</mat-chip>
+                </mat-chip-list>
+            </div>
+        </div>
+    </div>
+</div>

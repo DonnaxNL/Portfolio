@@ -1,0 +1,117 @@
+<nav class="fixed-top" [ngStyle]="{'background-color': navbarBgColor}">
+    <mat-toolbar [ngStyle]="{'background-color': navbarBgColor, 'color': navbarColor}">
+        <h2 *ngIf="showTitle" data-aos="fade-down" class="pt-1 mb-0 text-white">DxProductions</h2>
+        <span class="toolbar-spacer"></span>
+        <div *ngIf="!isMobile" data-aos="fade-down" data-aos-duration="1000">
+            <button mat-button class="button pt-1 mb-0" (click)="scrollToAboutMe()">About Me</button>
+            <button mat-button class="button pt-1 mb-0" (click)="scrollToExperience()">Experience</button>
+            <button mat-button class="button pt-1 mb-0" (click)="scrollToContact()">Contact</button>
+        </div>
+        <!-- <button mat-icon-button class="button p-2">
+            <mat-icon *ngIf="!isDarkMode" matTooltip="Toggle to Dark Mode"
+            (click)="toggleMode()" data-aos="flip-left">light_mode</mat-icon>
+            <mat-icon *ngIf="isDarkMode" matTooltip="Toggle to Light Mode"
+            (click)="toggleMode()" data-aos="flip-left">nightlight</mat-icon>
+        </button> -->
+        <div id="menuToggle" *ngIf="isMobile" (click)="drawer.toggle()">
+            <input type="checkbox" />
+            <span id="span1"></span>
+            <span id="span2"></span>
+            <span id="span3"></span>
+        </div>
+        <!-- <button *ngIf="isMobile" mat-button (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button> -->
+    </mat-toolbar>
+</nav>
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav fixed-top" mode="over" position="end" style="margin-top: 55px;">
+        <!-- <div style="height: 100%;" [ngStyle]="{'background-color': navbarBgColor}"> -->
+        <!-- <div class="w-100">
+                <button mat-icon-button (click)="drawer.close()"><mat-icon>close</mat-icon></button>
+            </div> -->
+        <div class="w-100 d-flex justify-content-center">
+            <mat-list role="list">
+                <mat-list-item class="button" role="listitem" data-aos="fade-left" data-aos-duration="2000"
+                    (click)="drawer.close(); scrollToAboutMe()">About Me</mat-list-item>
+                <mat-list-item class="button" role="listitem" data-aos="fade-left" data-aos-duration="2000"
+                    (click)="drawer.close(); scrollToExperience()">Experience</mat-list-item>
+                <mat-list-item class="button" role="listitem" data-aos="fade-left" data-aos-duration="2000"
+                    (click)="drawer.close(); scrollToContact()">Contact</mat-list-item>
+            </mat-list>
+        </div>
+        <!-- </div> -->
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+        <div [ngClass]="isDarkMode ? 'image-box' : 'image-box-l'">
+            <div class="header container text-center">
+                <div class="row" data-aos="fade-down">
+                    <div class="col-12 col-md">
+                        <h1 data-aos="zoom-in">DxProductions</h1>
+                        <p>Donavan Asmawidjaja | {{age}}</p>
+                    </div>
+                    <div class="col col-md-auto p-2">
+                        <img src="/assets/pf.jpg" height="300px" width="300px" style="border-radius: 50%;"
+                            data-aos="zoom-in" data-aos-duration="1000">
+                    </div>
+                </div>
+            </div>
+            <!-- Features Grid -->
+            <section class="features-icons text-center" data-aos="zoom-in">
+                <div class="container">
+                    <!-- <h1 class="mb-5" style="color:#F8BEB8">Why pick us?</h1> -->
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6">
+                            <div class="features-icons-item mx-auto mb-4 mb-lg-0 mb-lg-3">
+                                <div class="row">
+                                    <div class="features-icons-icon col-3 col-lg-12">
+                                        <i class="fab fa-android"></i>
+                                    </div>
+                                    <h5 class="col-9 col-lg-12 mb-0">
+                                        Android App Development
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                            <div class="features-icons-item mx-auto mb-4 mb-lg-0 mb-lg-3">
+                                <div class="row">
+                                    <div class="features-icons-icon col-3 col-lg-12">
+                                        <i class="fab fa-angular"></i>
+                                    </div>
+                                    <h5 class="col-9 col-lg-12 mb-0">
+                                        Angular Web Development
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-12 col-lg-4">
+                            <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                                <div class="row">
+                                    <div class="features-icons-icon col-3 col-lg-12">
+                                        <i class="fas fa-truck primary-color"></i>
+                                    </div>
+                                    <h5 class="col-9 col-lg-12 mb-0 my-auto">And more!</h5>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </section>
+            <div class="text-center d-flex justify-content-center">
+                <div class="arrow" (click)="scrollToAboutMe()">
+                    <span></span>
+                </div>
+            </div>
+            <div class="body">
+                <div #aboutme style="padding: 40px;"></div>
+                <home-about-me></home-about-me>
+                <div #experience style="padding: 40px;"></div>
+                <home-experience></home-experience>
+            </div>
+            <div #footer></div>
+            <footer></footer>
+        </div>
+    </div>
+</mat-drawer-container>

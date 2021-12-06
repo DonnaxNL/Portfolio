@@ -1,0 +1,109 @@
+<nav class="fixed-top">
+    <mat-toolbar class="navbar">
+        <h2 class="pt-1 mb-0 text-white" routerLink="/">DxProductions</h2>
+    </mat-toolbar>
+</nav>
+<mat-toolbar style="height: 5vh;">
+</mat-toolbar>
+<!-- Header -->
+<div class="image-box" [ngStyle]="{'background': currentStyle.color}">
+    <div class="container">
+        <div class="row" data-aos="fade-down">
+            <div class="col-12 col-md-6" style="display: flex; align-items: flex-end;">
+                <div class="row p-4">
+                    <img class="p-0 col-auto icon" src="{{currentExperience?.icon}}" width="100px" height="100px">
+                    <h1 class="col" style="display: flex; align-items: flex-end;" data-aos="zoom-in">{{currentExperience?.title}}</h1>
+                </div>
+            </div>
+            <div *ngIf="!isMobile" class="col col-md-6 p-2">
+                <div class="glass-card">
+                    <div class="card-content">
+                        <h4>Details</h4>
+                        <mat-divider style="background-color: white; margin-bottom: 16px;"></mat-divider>
+                        <p>Position: {{currentExperience?.position}}</p>
+                        <p *ngIf="currentExperience?.startDate">
+                            Duration:
+                            {{currentExperience?.startDate | date:'MMM yyyy'}} -
+                            <span *ngIf="currentExperience?.endDate">
+                                {{currentExperience?.endDate | date:'MMM yyyy'}}
+                            </span>
+                        </p>
+                        <p>Technologies:</p>
+                        <mat-chip-list aria-label="Technologies">
+                            <mat-chip *ngFor="let tech of currentExperience.technologies">{{tech}}</mat-chip>
+                        </mat-chip-list>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Details and images -->
+<div class="detail-box">
+    <div class="container pt-4">
+        <div class="row" data-aos="fade-down">
+            <div *ngIf="isMobile" class="col-12 col-md-4">
+                <div class="glass-card mb-4">
+                    <div class="card-content">
+                        <h4>Details</h4>
+                        <mat-divider style="background-color: white; margin-bottom: 16px;"></mat-divider>
+                        <p>Position: {{currentExperience?.position}}</p>
+                        <p *ngIf="currentExperience?.startDate">
+                            Duration:
+                            {{currentExperience?.startDate | date:'MMM yyyy'}} -
+                            <span *ngIf="currentExperience?.endDate">
+                                {{currentExperience?.endDate | date:'MMM yyyy'}}
+                            </span>
+                        </p>
+                        <p>Technologies:</p>
+                        <mat-chip-list aria-label="Technologies">
+                            <mat-chip *ngFor="let tech of currentExperience.technologies">{{tech}}</mat-chip>
+                        </mat-chip-list>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-8 order-2 mb-4">
+                <div class="glass-card">
+                    <div class="card-content">
+                        <p [innerHTML]="currentExperience.description"></p>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="currentExperience?.images" class="col-12 mb-4"
+                [ngClass]="currentExperience?.platform == 'mobile' ? 'order-3 col-md-4' : 'order-3 col-md-12'">
+                <div class="glass-card">
+                    <div class="card-content">
+                        <h4>Screenshots</h4>
+                        <div class="image-carousel">
+                            <div class="w-100 d-flex justify-content-center">
+                                <carousel class="w-100" [interval]="slideConfig.interval"
+                                    [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="singleSlideOffset"
+                                    [showIndicators]="slideConfig.showIndicators" [isAnimated]="false">
+                                    <slide *ngFor="let slide of currentExperience?.images; let i = index"
+                                        class="pl-4 pr-4">
+                                        <img class="carousel-select" [src]="slide"
+                                            style="display: block; max-height: 50px;" [class.active]="i === activeSlide"
+                                            [attr.aria-pressed]="i === activeSlide" (click)="activeSlide = i">
+                                    </slide>
+                                </carousel>
+                            </div>
+                            <img class="slide-image mt-2" [src]="currentExperience?.images[activeSlide]"
+                                (click)="openImage(currentExperience?.images[activeSlide])">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Other projects -->
+<div class="other-box">
+    <div class="container pt-4 pb-4">
+        <h4 style="color: black;">Other projects</h4>
+        <div class="row mt-4 mb-4">
+            <div class="col-6 col-md-3 item-box mb-3" *ngFor="let experience of otherExperiences; let i = index">
+                <img class="image-icon" src="{{experience.icon}}" width="100px" height="100px" (click)="openPage(experience.id)">
+            </div>
+        </div>
+    </div>
+</div>

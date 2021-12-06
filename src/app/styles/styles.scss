@@ -1,0 +1,119 @@
+/* You can add global styles to this file, and also import other style files */
+
+.bg {
+    color: #2f2fa2;
+}
+
+.secondary {
+    color: #242582;
+}
+
+.accent {
+    color: #f64c72;
+}
+
+// Other: #553D67, #99738E
+
+$text: white;
+
+// Text
+html,
+body {
+  height: 100%;
+  font-family: "Roboto", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+h1,
+h2 {
+  //letter-spacing: 8px;
+  font-family: "Roboto", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: $text;
+}
+
+h3,
+h4,
+h5 {
+  font-family: "Roboto", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: $text;
+}
+
+h6 {
+  font-family: "Roboto", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold !important;
+  color: $text;
+}
+
+p {
+  font-family: "Roboto", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: $text;
+  font-weight: 400;
+  margin-top: 0em !important;
+  margin-bottom: 0em !important;
+}
+
+small {
+  font-family: "Roboto", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: $text;
+}
+
+// Links
+a {
+    color: rgb(30, 30, 233);
+}
+
+a:hover {
+    outline: none;
+    color: rgb(20, 20, 151);
+    cursor: pointer;
+}
+
+.link {
+    color: rgb(30, 30, 233);
+    &:hover,
+    &:active,
+    &:focus {
+        outline: none;
+        color: rgb(20, 20, 151);
+        cursor: pointer;
+    }
+}
+
+.link-white {
+    color: white;
+    &:hover,
+    &:active,
+    &:focus {
+        outline: none;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+.link-text:hover {
+    text-decoration: underline;
+}
+
+.divider {
+    height: 1px;
+    background-color: white;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.divider-l {
+    height: 1px;
+    background-color: gray;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+// a {
+//     color: #f8beb8;
+// }
+
+// a:hover {
+//     color: #f8beb8;
+// }
