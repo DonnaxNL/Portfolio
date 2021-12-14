@@ -10,25 +10,22 @@ import { Experience } from 'src/app/models/experience';
   styleUrls: ['./detailspage.component.scss']
 })
 export class DetailsPageComponent implements OnInit {
-  isMobile = false
-  activeSlide = 0
-  slideConfig = {
-    interval: 0,
-    showIndicators: false,
-    isAnimated: true
-  };
-  itemsPerSlide = 4;
-  singleSlideOffset = true;
+  isMobile = false;
+
+  activeSlide = '';
+  visibleSlides = [];
+  slidePosition = 0;
+
   experienceId = null;
   allExperiences = null;
   otherExperiences = null;
-  currentExperience: Experience = null
+  currentExperience: Experience = null;
   currentStyle = { 
     'background': 'linear-gradient(rgba(0, 0, 0, 0.3), rgba(47, 47, 162, 0.1)), url(/assets/demonth.png) center center',
     'background-repeat': 'no-repeat',
     'background-size': 'cover',
     'color': 'white' 
-  }
+  };
 
   styleObject(): Object {
     var defaultValues = { 
@@ -84,7 +81,10 @@ export class DetailsPageComponent implements OnInit {
       'background-size': 'cover',
       'color': this.currentExperience.color
     }
-    console.log(this.currentExperience, this.currentStyle)
+  }
+
+  setActiveSlide(url) {
+    this.activeSlide = url
   }
 
   openImage(imageUrl: string) {
@@ -100,6 +100,10 @@ export class DetailsPageComponent implements OnInit {
     this.router.navigate(['/experience/' + id]);
     this.experienceId = id;
     this.getExperience()
+  }
+
+  openUrl(url: string) {
+    window.open(url, '_blank');
   }
 }
 

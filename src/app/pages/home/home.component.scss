@@ -11,6 +11,16 @@
     position: fixed !important;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    color: white;
+}
+
 .button {
     &:hover,
     &:active,
@@ -22,7 +32,7 @@
 
 .image-box {
     /* Here's the trick */
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(47, 47, 162, 0.3)), url(/assets/bg.jpg) center center;
+    background:  linear-gradient(rgba(0, 0, 0, 0.1), rgba(47, 47, 162, 0.1)), url(/assets/bg.jpg) center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 
@@ -53,7 +63,7 @@
 }
 
 .navbar {
-    background-color: black;
+    background-color:#0055AA;
 }
 
 .header {
@@ -81,7 +91,7 @@
 .card {
     backdrop-filter: blur(6px) saturate(180%);
     -webkit-backdrop-filter: blur(6px) saturate(180%);
-    background-color: rgba(17, 25, 40, 0.5);
+    background-color: rgba(17, 25, 40, 0.4);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.125);
 }
@@ -126,7 +136,6 @@
     border-bottom: 5px solid white;
     border-right: 5px solid white;
     transform: rotate(45deg);
-    margin: -10px;
     animation: animate 2s infinite;
 }
 .arrow span:nth-child(2) {
@@ -213,5 +222,9 @@
 @media (max-width: 765px) {
     .header {
         padding-top: 50px;
+    }
+
+    .arrow span {
+        margin-top: -20px;
     }
 }

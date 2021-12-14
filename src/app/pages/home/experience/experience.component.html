@@ -3,22 +3,22 @@
     <div class="card-columns">
         <div *ngFor="let experience of allExperiences; let i = index">
             <div class="card" data-aos="fade-down" data-aos-duration="500 * (i+1)"
-                data-aos-once="true" (click)="openPage(experience.id)">
+                data-aos-once="true">
                 <img class="card-img-top" src="{{experience.mainImage}}" alt="Card image cap">
                 <div class="card-body">
                     <div class="row pl-3">
                         <img class="p-0 col-auto icon" src="{{experience.icon}}" width="30px" height="30px">
                         <h4 class="col">{{experience.title}}</h4>
                     </div>
-                    <p class="card-text mb-2">{{experience.shortDescription}}</p>
+                    <p class="card-text mb-2">{{experience.briefDescription}}</p>
                     <mat-chip-list aria-label="Technologies">
-                        <mat-chip *ngFor="let tech of experience.technologies">{{tech}}</mat-chip>
+                        <mat-chip *ngFor="let tech of experience.tags">{{tech}}</mat-chip>
                     </mat-chip-list>
                     <div class="divider"></div>
                     <mat-card-actions>
                         <button mat-button (click)="openPage(experience.id)">Learn more</button>
-                        <button mat-button *ngIf="experience.link" (click)="openUrl(experience.link)">Visit website</button>
-                        <button mat-button *ngIf="experience.download" (click)="openUrl(experience.download)">Download</button>
+                        <button mat-button *ngIf="experience.overview.link" (click)="openUrl(experience.overview.link)">Visit website</button>
+                        <button mat-button *ngIf="experience.overview.download" (click)="openUrl(experience.overview.download)">Download</button>
                     </mat-card-actions>
                 </div>
             </div>

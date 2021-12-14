@@ -3,17 +3,18 @@ import { MaterialModule } from './modules/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { CarouselComponent } from './components/carousel.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CarouselComponent
+  ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
-    MaterialModule,
-    CarouselModule
+    MaterialModule
   ],
   exports: [
     CommonModule,
@@ -21,7 +22,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    CarouselModule
+    CarouselComponent
   ],
   providers: [],
   entryComponents: []

@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
+import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,7 @@ export class HomeComponent implements OnInit {
   public birthdate: Date = new Date(1995,3,18);
   public age: number;
 
-  @ViewChild('drawer') drawer: ElementRef;
+  @ViewChild('drawer') drawer: MatDrawer;
   @ViewChild('experience') experience: ElementRef;
   @ViewChild('aboutme') aboutMe: ElementRef;
   @ViewChild('footer') footer: ElementRef;
@@ -32,21 +33,22 @@ export class HomeComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   checkOffsetTop() {
-    var scroll = window.pageYOffset
-    //console.log(this.isMobile, scroll); // this will console log our scroll position
-    if (!this.isMobile && scroll > 350) {
-      this.showTitle = true
-      this.navbarColor = this.isDarkMode ? 'white' : 'black'
-      this.navbarBgColor = this.isDarkMode ? 'black' : 'white'
-      //console.log(this.showTitle)
-    } if (this.isMobile && scroll > 40) {
-      this.showTitle = true
-      this.navbarColor = this.isDarkMode ? 'white' : 'black'
-      this.navbarBgColor = this.isDarkMode ? 'black' : 'white'
-    } else if (!this.isMobile && scroll < 350 || this.isMobile && scroll < 40) {
-      this.showTitle = false
-      this.navbarColor = this.isDarkMode ? 'white' : 'black'
-      this.navbarBgColor = 'rgba(0, 0, 0, 0)'
+    if (!this.drawer.opened) {
+      var scroll = window.pageYOffset
+      if (!this.isMobile && scroll > 350) {
+        this.showTitle = true
+        this.navbarColor = this.isDarkMode ? 'white' : '#0055AA'
+        this.navbarBgColor = this.isDarkMode ? '#0055AA' : 'white'
+        //console.log(this.showTitle)
+      } if (this.isMobile && scroll > 40) {
+        this.showTitle = true
+        this.navbarColor = this.isDarkMode ? 'white' : '#0055AA'
+        this.navbarBgColor = this.isDarkMode ? '#0055AA' : 'white'
+      } else if (!this.isMobile && scroll < 350 || this.isMobile && scroll < 40) {
+        this.showTitle = false
+        this.navbarColor = this.isDarkMode ? 'white' : '#0055AA'
+        this.navbarBgColor = 'rgba(0, 0, 0, 0)'
+      }
     }
   }
 
@@ -54,8 +56,18 @@ export class HomeComponent implements OnInit {
     this.calculateAge()
   }
 
-  toggleNavbar() {
-    this.navbarOpen = !this.navbarOpen;
+  toggleMenu() {
+    //this.navbarOpen = !this.navbarOpen;
+    this.drawer.toggle()
+    if (this.drawer.opened) {
+      this.showTitle = true
+      this.navbarColor = 'white'
+      this.navbarBgColor = '#0055AA'
+    } else {
+      this.showTitle = false
+      this.navbarColor = 'white'
+      this.navbarBgColor = 'rgba(0, 0, 0, 0)'
+    }
   }
 
   toggleMode() {

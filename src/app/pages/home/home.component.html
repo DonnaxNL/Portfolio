@@ -13,7 +13,7 @@
             <mat-icon *ngIf="isDarkMode" matTooltip="Toggle to Light Mode"
             (click)="toggleMode()" data-aos="flip-left">nightlight</mat-icon>
         </button> -->
-        <div id="menuToggle" *ngIf="isMobile" (click)="drawer.toggle()">
+        <div id="menuToggle" *ngIf="isMobile" (click)="toggleMenu()">
             <input type="checkbox" />
             <span id="span1"></span>
             <span id="span2"></span>
@@ -26,10 +26,6 @@
 </nav>
 <mat-drawer-container class="example-container" autosize>
     <mat-drawer #drawer class="example-sidenav fixed-top" mode="over" position="end" style="margin-top: 55px;">
-        <!-- <div style="height: 100%;" [ngStyle]="{'background-color': navbarBgColor}"> -->
-        <!-- <div class="w-100">
-                <button mat-icon-button (click)="drawer.close()"><mat-icon>close</mat-icon></button>
-            </div> -->
         <div class="w-100 d-flex justify-content-center">
             <mat-list role="list">
                 <mat-list-item class="button" role="listitem" data-aos="fade-left" data-aos-duration="2000"
@@ -40,7 +36,6 @@
                     (click)="drawer.close(); scrollToContact()">Contact</mat-list-item>
             </mat-list>
         </div>
-        <!-- </div> -->
     </mat-drawer>
 
     <div class="example-sidenav-content">

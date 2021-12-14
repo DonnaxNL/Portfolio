@@ -1,0 +1,13 @@
+<div class="row ml-1 mr-1 d-flex justify-content-center">
+    <div *ngIf="visibleSlides.length > 3" class="col carousel-arrow" matRipple (click)="carouselChange(false)">
+        <i class="fas fa-chevron-left"></i>
+    </div>
+    <div class="col-auto row carousel">
+        <div class="col" *ngFor="let slide of visibleSlides; let i = index">
+            <img class="carousel-select" [src]="slide" (click)="passActiveSlide(slide)">
+        </div>
+    </div>
+    <div *ngIf="visibleSlides.length > 3" class="col carousel-arrow" matRipple (click)="carouselChange(true)">
+        <i class="fas fa-chevron-right"></i>
+    </div>
+</div>

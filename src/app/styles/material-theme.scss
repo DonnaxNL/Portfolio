@@ -46,6 +46,7 @@ $Portfolio-theme: mat.define-light-theme($Portfolio-primary, $Portfolio-accent, 
 //     }
 // }
 
+// Buttons
 .mat-button {
     &:hover,
     &:active,
@@ -131,4 +132,9 @@ mat-button-toggle {
         border-color: mat.get-color-from-palette($Portfolio-primary);
         border-width: 2px;
     }
+}
+
+// Other
+.mat-chip-list {
+    pointer-events: none;
 }
